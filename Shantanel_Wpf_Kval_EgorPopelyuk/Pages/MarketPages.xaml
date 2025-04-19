@@ -8,7 +8,23 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MarketPages">
 
-    <Grid>
-        
+    <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Click="Button_Click">Добавить фото</Button>
+        <StackPanel Grid.Column="1">
+            <TextBox x:Name="NameTB"></TextBox>
+            <TextBox x:Name="CostTB"></TextBox>
+            <TextBox x:Name="DiscriptionTB"></TextBox>
+            <Image x:Name="PHTIMG"></Image>
+        </StackPanel>
+        <ComboBox Grid.Column="2" x:Name="PhotoCB" VerticalAlignment="Center" SelectionChanged="PhotoCB_SelectionChanged"></ComboBox>
     </Grid>
 </Page>

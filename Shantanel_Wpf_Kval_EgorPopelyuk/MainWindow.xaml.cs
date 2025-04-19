@@ -24,7 +24,7 @@ namespace Shantanel_Wpf_Kval_EgorPopelyuk
         {
             InitializeComponent();
 
-            MainFrame.Navigate(new Pages.MarketPages());
+            MainFrame.Navigate(new Pages.MainMarketPage());
         }
     }
 }

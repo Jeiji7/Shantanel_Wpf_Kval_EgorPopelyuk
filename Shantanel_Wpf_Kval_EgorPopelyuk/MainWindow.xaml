@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shantanel_Wpf_Kval_EgorPopelyuk"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Шайтанел" Height="450" Width="800" Icon="/Resources/Logo.png">
     <Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
