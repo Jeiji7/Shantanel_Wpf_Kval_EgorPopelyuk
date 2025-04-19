@@ -65,13 +65,17 @@ namespace Shantanel_Wpf_Kval_EgorPopelyuk.Pages
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Тут должно было быть что-то, но нигде не написано");
         }
 
         private void Button_Click_Next(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Тут должно было быть что-то, но нигде не написано");
         }
 
+        private void Button_Click_AddKorm(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.EditPage());
+        }
     }
 }

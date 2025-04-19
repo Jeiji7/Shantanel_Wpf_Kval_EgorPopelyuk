@@ -13,8 +13,8 @@
             <RowDefinition Height="8*"/>
             <RowDefinition Height="37*"/>
         </Grid.RowDefinitions>
-        <TextBlock FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center">Редактирование</TextBlock>
-
+        <TextBlock FontSize="40" HorizontalAlignment="Center" x:Name="TitlePageTB" VerticalAlignment="Center">Редактирование</TextBlock>
+        <Button HorizontalAlignment="Right" Click="Button_Click_Back">Назад</Button>
             <StackPanel VerticalAlignment="Top" Grid.Row="1" Orientation="Vertical">
                 <Image Width="100" Height="100" x:Name="PhotoProdImg"></Image>
             <Button Width="100" Click="Button_Click_EditPhoto">Сменить фото</Button>

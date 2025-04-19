@@ -23,7 +23,23 @@ namespace Shantanel_Wpf_Kval_EgorPopelyuk.Pages
     /// </summary>
     public partial class EditPage : Page
     {
-        private Product prod;
+        private Product prod = new Product();
+        private int number = 0;
+        public OpenFileDialog openFileDialog = new OpenFileDialog()
+        {
+            Filter = "*.png|*.png|*.jpeg|*.jpeg|*.jpg|*.jpg"
+        };
+        public EditPage()
+        {
+            InitializeComponent();
+            TitlePageTB.Text = "Добавление";
+            var photo = App.db.Type_product.ToList();
+            TypeProdCB.ItemsSource = photo;
+            PhotoProdImg.Source = ByteArrayToImage(prod.Images);
+            TypeProdCB.DisplayMemberPath = "Name";
+            number = 1;
+        }
+
         public EditPage(Product product)
         {
             InitializeComponent();
@@ -35,6 +51,7 @@ namespace Shantanel_Wpf_Kval_EgorPopelyuk.Pages
             TypeProdCB.ItemsSource = photo;
             PhotoProdImg.Source = ByteArrayToImage(prod.Images);
             TypeProdCB.DisplayMemberPath = "Name";
+            TypeProdCB.SelectedIndex = (int)prod.ID_prod;
         }
 
         private ImageSource ByteArrayToImage(byte[] imageData)
@@ -59,7 +76,11 @@ namespace Shantanel_Wpf_Kval_EgorPopelyuk.Pages
             prod.Cost = int.Parse(CostTB.Text);
             prod.Discription = DiscriptionTB.Text;
             prod.ID_prod = TypeProdCB.SelectedIndex + 1;
-            
+            prod.Images = File.ReadAllBytes(openFileDialog.FileName);
+            if (number == 1)
+            {
+                App.db.Product.Add(prod);
+            }
             App.db.SaveChanges();
             MessageBox.Show("Данные успешно сохранены!!!");
             NavigationService.Navigate(new Pages.MainMarketPage());
@@ -67,10 +88,7 @@ namespace Shantanel_Wpf_Kval_EgorPopelyuk.Pages
 
         private void Button_Click_EditPhoto(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog()
-            {
-                Filter = "*.png|*.png|*.jpeg|*.jpeg|*.jpg|*.jpg"
-            };
+           
             if (openFileDialog.ShowDialog().GetValueOrDefault())
             {
                 prod.Images = File.ReadAllBytes(openFileDialog.FileName);
@@ -78,7 +96,12 @@ namespace Shantanel_Wpf_Kval_EgorPopelyuk.Pages
 
             }
             MessageBox.Show("Вы успешно выбрали новое фото!!!");
-            App.db.SaveChanges();
+        }
+
+
+        private void Button_Click_Back(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.MainMarketPage());
         }
     }
 }
