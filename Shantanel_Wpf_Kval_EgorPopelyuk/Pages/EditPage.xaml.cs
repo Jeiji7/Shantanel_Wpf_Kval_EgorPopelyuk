@@ -61,7 +61,7 @@ namespace Shantanel_Wpf_Kval_EgorPopelyuk.Pages
             prod.ID_prod = TypeProdCB.SelectedIndex + 1;
             
             App.db.SaveChanges();
-            MessageBox.Show("Данные успешно сохранены");
+            MessageBox.Show("Данные успешно сохранены!!!");
             NavigationService.Navigate(new Pages.MainMarketPage());
         }
 
@@ -77,6 +77,7 @@ namespace Shantanel_Wpf_Kval_EgorPopelyuk.Pages
                 PhotoProdImg.Source = new BitmapImage(new Uri(openFileDialog.FileName));
 
             }
+            MessageBox.Show("Вы успешно выбрали новое фото!!!");
             App.db.SaveChanges();
         }
     }
